@@ -1,0 +1,22 @@
+{% extends "Base.html" %}
+{% block content %}
+    <form action="{{ url_for('edit_member_form_post', member_id=model.id) }}" method="POST">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Edit_Member_Modal_Label">Edit Member</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Member Name</label>
+                        <input type="input" class="form-control" placeholder="Title" name="member_name" value="{{model.member_name}}">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <a type="button" class="btn btn-secondary" href="{{ url_for('home_page_get') }}">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

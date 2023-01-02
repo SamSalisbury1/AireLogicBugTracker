@@ -1,0 +1,36 @@
+{% extends "Base.html" %}
+{% block content %}
+    <form action="{{ url_for('add_ticket_form_post') }}" method="POST">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Add_Ticket_Modal_Label">Create Ticket</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Ticket Title</label>
+                        <input type="input" class="form-control" placeholder="Title" name="ticket_title">
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label>Ticket Description</label>
+                        <textarea class="form-control"rows="5" name="ticket_description"></textarea>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label class="form-label">Ticket Assignee</label>
+                        <select class="form-select" name="ticket_assignee">
+                            {% for member in model %}
+                                <option>{{member.member_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <a type="button" class="btn btn-secondary" href="{{ url_for('home_page_get') }}">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "Base.html" %}
+{% block content %}
+    <form action="{{ url_for('add_member_form_post') }}" method="POST">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Add_Member_Modal_Label">Add New Member</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Member Name</label>
+                        <input type="input" class="form-control" placeholder="Name" name="member_name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Add Member</button>
+                    <a type="button" class="btn btn-secondary" href="{{url_for('home_page_get')}}">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

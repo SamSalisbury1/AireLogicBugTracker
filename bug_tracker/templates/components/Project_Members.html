@@ -1,0 +1,32 @@
+<div class="row mt-4">
+    <div class="col-12 d-flex align-items-center">
+        <h1 class="me-2">Bug Tracker</h1>
+        <a type="button" class="btn btn-primary ms-2 me-2" href="{{ url_for('add_member_form_get') }}">Add Member</a>
+        <div class="dropdown ms-2">
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#members-modal">View Members</button>
+
+            <div class="modal fade" id="members-modal" tabindex="-1" aria-labelledby="members-modal-label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="members-modal-label">View Members</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            {% for member in model.members %}
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="m-0">{{member.member_name}}</p>
+                                    <div>
+                                        <a type="button" class="btn btn-primary" href="{{ url_for('edit_member_form_get', member_id=member.id) }}">Edit</a>
+                                        <a type="button" class="btn btn-danger" href="{{ url_for('delete_member', member_id=member.id) }}">Delete</a>
+                                    </div>
+                                </div> 
+                                <hr>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

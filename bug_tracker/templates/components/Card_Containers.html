@@ -1,0 +1,42 @@
+<div class="row vh-100 mt-4 d-flex justify-content-between">
+    <div class="col-2 bg-light">
+        <h2 class="text-muted">Open</h2>
+        <div class="d-flex flex-column align-items-center">
+            {% for ticket in model.tickets %}
+                {% if ticket.ticket_status == 'Open' %}
+                    {% include 'components/Ticket_Card.html' %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-2 bg-light">
+        <h2 class="text-muted">Working</h2>
+        <div class="d-flex flex-column align-items-center">
+            {% for ticket in model.tickets %}
+                {% if ticket.ticket_status == 'Working' %}
+                    {% include 'components/Ticket_Card.html' %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-2 bg-light">
+        <h2 class="text-muted">In Review</h2>
+        <div class="d-flex flex-column align-items-center">
+            {% for ticket in model.tickets %}
+                {% if ticket.ticket_status == 'In Review' %}
+                    {% include 'components/Ticket_Card.html' %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-2 bg-light">
+        <h2 class="text-muted">Done</h2>
+        <div class="d-flex flex-column align-items-center">
+            {% for ticket in model.tickets %}
+                {% if ticket.ticket_status == 'Done' %}
+                    {% include 'components/Ticket_Card.html' %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
