@@ -20,3 +20,8 @@ It can be used to create and edit users, tickets and allows you to assign and re
 <li>All HTML files are located in the templates folder, HTML files use Jinja2 which is provided by Flask and allows us to dynamically render content</li>
 <li>All CSS and Images are located in the static folder</li>
 </ul>
+
+<h1>Known bugs / issues</h1>
+<ul>
+<li>Currently tests pass when run individually but fail when run as a group</li>
+</ul>
