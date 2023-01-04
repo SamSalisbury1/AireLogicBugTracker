@@ -34,13 +34,28 @@ It can be used to create and edit users, tickets and allows you to assign and re
 <li>Clone the repo into an empty folder</li>
 <li>Open the folder in your chosen IDE</li>
 <li>Open a new terminal / CMD within this folder and run the following commands</li>
-<li>Initialise a virtual environment</li>
+<li>Initialise and activate virtual environment</li>
+<li>Linux</li>
 
-```py -3 -m venv .venv```
+```
+sudo apt-get install python3-venv
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
-<li>Activate Virtual Environment</li>
+<li>Mac</li>
 
-```.\.venvv\Scripts\activate```
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
+ 
+<li>Windows</li>
+  
+```
+  py -3 -m venv .venv
+  .\.venvv\Scripts\activate
+```
 
 <li>You can tell if the virtual environment is activated as you will see the text (.venv) at the start of the current and subsequent cmd / terminal lines</li>
 <li>Once the virutal environment is activated Install Required packages</li>
