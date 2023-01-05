@@ -2,12 +2,13 @@
     <div class="card-body">
         <h5 class="card-title">{{ticket.ticket_title}}</h5>
         <a href="{{ url_for('edit_ticket_form_get', ticket_code=ticket.ticket_code) }}">{{ticket.ticket_code}}</a>
+        <p class="float-end">{{ticket.ticket_created_at.strftime("%d/%m/%Y")}}</p>
         <br/>
         <br/>
         <p class="card-text">{{ticket.ticket_assignee}}</p>
     </div>
     <div class="card-footer">
-        <a type="button" class="btn btn-primary me-2" href="{{ url_for('edit_ticket_form_get', ticket_code=ticket.ticket_code) }}">Edit</a>
+        <a type="button" class="btn btn-secondary me-2" href="{{ url_for('edit_ticket_form_get', ticket_code=ticket.ticket_code) }}">Details</a>
         <a type="button" class="btn btn-danger" href="{{ url_for('delete_ticket', ticket_code=ticket.ticket_code) }}">
             {% if ticket.ticket_status == 'Done' %} Close {% else %} Delete {% endif %}
         </a>

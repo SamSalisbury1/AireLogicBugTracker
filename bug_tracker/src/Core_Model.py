@@ -1,4 +1,6 @@
 from bug_tracker import db
+from sqlalchemy import DateTime
+import datetime
 
 class Ticket(db.Model):
     ticket_id = db.Column(db.Integer, primary_key=True)
@@ -7,9 +9,10 @@ class Ticket(db.Model):
     ticket_description = db.Column(db.Text)
     ticket_status = db.Column(db.String(20), nullable=False)
     ticket_assignee = db.Column(db.String(20))
+    ticket_created_at = db.Column(DateTime, default=datetime.datetime.now())
 
     def __repr__(self):
-        return f"Ticket('{self.ticket_code}', '{self.ticket_title}', '{self.ticket_description}', '{self.ticket_status}', '{self.ticket_assignee}')"
+        return f"Ticket('{self.ticket_code}', '{self.ticket_title}', '{self.ticket_description}', '{self.ticket_status}', '{self.ticket_assignee}', '{self.ticket_created_at}')"
 
 class Member(db.Model):
     id = db.Column(db.Integer, primary_key=True)
