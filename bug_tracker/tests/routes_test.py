@@ -1,4 +1,6 @@
 from flask import Flask
+import datetime
+from sqlalchemy import DateTime
 import unittest
 from flask_sqlalchemy import SQLAlchemy
 from flask_testing import TestCase
@@ -18,7 +20,7 @@ class Routes_Tests(TestCase):
     def setUp(self):
         db.create_all()
         db.session.add(Member(member_name='Jimmy Mgill'))
-        db.session.add(Ticket(ticket_code='CA-1', ticket_title='Fix null reference exception', ticket_description='Read Title', ticket_assignee='Jimmy Mgill', ticket_status='Open'))
+        db.session.add(Ticket(ticket_code='CA-1', ticket_title='Fix null reference exception', ticket_description='Read Title', ticket_assignee='Jimmy Mgill', ticket_status='Open', ticket_created_at=datetime.datetime(2023, 1, 5)))
 
         db.session.commit()
 
@@ -146,7 +148,10 @@ class Routes_Tests(TestCase):
         assert ticket.ticket_title == 'Fix Data Leak' 
         assert ticket.ticket_description == 'The Data is Leaking again' 
         assert ticket.ticket_status == 'Open' 
-        assert ticket.ticket_assignee == 'Jimmy Mgill' 
+        assert ticket.ticket_assignee == 'Jimmy Mgill'
+        assert ticket.ticket_created_at.year == 2023
+        assert ticket.ticket_created_at.month == 1
+        assert ticket.ticket_created_at.day == 5
         self.assert_template_used('Home_Page.html')
         self.assert_context("model", model)
 
@@ -183,6 +188,9 @@ class Routes_Tests(TestCase):
         assert ticket.ticket_description == 'The Data is Leaking again' 
         assert ticket.ticket_assignee == 'Jimmy Mgill' 
         assert ticket.ticket_status == 'Closed' 
+        assert ticket.ticket_created_at.year == 2023
+        assert ticket.ticket_created_at.month == 1
+        assert ticket.ticket_created_at.day == 5
         self.assert_template_used('Home_Page.html')
         self.assert_context("model", model)
 

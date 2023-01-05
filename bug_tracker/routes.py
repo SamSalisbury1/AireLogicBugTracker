@@ -23,6 +23,7 @@ def add_member_form_post():
 
     return render_template("Home_Page.html", model=get_home_page_model())
 
+
 @app.route('/edit_member_form/<int:member_id>')
 def edit_member_form_get(member_id): 
     return render_template("Edit_Member_Form.html", model=get_edit_member_model(member_id))
