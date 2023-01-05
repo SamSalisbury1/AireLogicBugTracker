@@ -54,7 +54,7 @@ source .venv/bin/activate
   
 ```
   py -3 -m venv .venv
-  .\.venvv\Scripts\activate
+  .\.venv\Scripts\activate
 ```
 
 <li>You can tell if the virtual environment is activated as you will see the text (.venv) at the start of the current and subsequent cmd / terminal lines</li>
