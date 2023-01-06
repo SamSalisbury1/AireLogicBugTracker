@@ -1,12 +1,8 @@
-from flask import Flask
 import datetime
-from sqlalchemy import DateTime
 import unittest
-from flask_sqlalchemy import SQLAlchemy
 from flask_testing import TestCase
-from unittest import mock
-from unittest.mock import MagicMock, Mock, patch
 from bug_tracker.src.Core_Model import Member, Ticket
+from unittest.mock import patch
 from bug_tracker import app, db
 
 class Routes_Tests(TestCase):
@@ -149,9 +145,9 @@ class Routes_Tests(TestCase):
         assert ticket.ticket_description == 'The Data is Leaking again' 
         assert ticket.ticket_status == 'Open' 
         assert ticket.ticket_assignee == 'Jimmy Mgill'
-        assert ticket.ticket_created_at.year == 2023
-        assert ticket.ticket_created_at.month == 1
-        assert ticket.ticket_created_at.day == 5
+        assert ticket.ticket_created_at.year == datetime.datetime.now().year
+        assert ticket.ticket_created_at.month == datetime.datetime.now().month
+        assert ticket.ticket_created_at.day == datetime.datetime.now().day
         self.assert_template_used('Home_Page.html')
         self.assert_context("model", model)
 
