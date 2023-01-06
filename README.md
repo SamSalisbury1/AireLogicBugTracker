@@ -10,7 +10,7 @@ This is a bug tracking application made using:
 <li>Bootstrap</li>
 </ul>
 
-It can be used to create and edit users, tickets and allows you to assign and reassign people to tickets.
+It can be used to create, edit and delete members and tickets and allows you to assign and reassign members to tickets.
 
 <h1>An Overview of How it works</h1>
 <ul>
